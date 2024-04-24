@@ -1,12 +1,9 @@
 fileFormatVersion: 2
-guid: 28ca19371f02588409e82b8b81c8e313
+guid: ae90ccae98e03b347ae82779692044e9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - m_Generator: {instanceID: 0}
-  - MazeCellPrefab: {instanceID: 0}
-  - PointPrefab: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

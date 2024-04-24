@@ -8,11 +8,13 @@ public class MazeRenderer : MonoBehaviour
     [SerializeField] GameObject MazeCellPrefab;
     // Prefab for point objects
     [SerializeField] GameObject PointPrefab;
+    public static int maxPoints;
 
     public float CellSize = 1f;
 
     private void Start()
     {
+        maxPoints = 0;
         // Obtain the maze from MazeGenerator
         MazeCell[,] maze = m_Generator.GetMaze();
 
@@ -40,11 +42,12 @@ public class MazeRenderer : MonoBehaviour
                 // Initialize the maze cell with wall configuration
                 mazeCell.Init(top, bottom, right, left);
 
-                //// Randomly instantiate a point object in the cell
-                //if (Random.value < 0.1f)  // 10% chance to spawn a point in each cell
-                //{
-                //    Instantiate(PointPrefab, new Vector3(x * CellSize, 0.5f, y * CellSize), Quaternion.identity, transform);
-                //}
+                // Randomly instantiate a point object in the cell
+                if (Random.value < 0.2f)  // 10% chance to spawn a point in each cell
+                {
+                    Instantiate(PointPrefab, new Vector3(x * CellSize, 0.5f, y * CellSize), Quaternion.identity, transform);
+                    maxPoints++;
+                }
             }
         }
     }
