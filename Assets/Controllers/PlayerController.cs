@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private float runSpeed = 5f;
     private float gravity = -10f;
 
-    //--- CAMERA ---//
+    //Camera
     public GameObject CmCamTarget;
 
     private float _cmTargetPitch;
@@ -28,10 +28,8 @@ public class PlayerController : MonoBehaviour
     private float _minCamPitch = -90.0f;
     private float _maxCamPitch = 90.0f;
 
-    //--- TIMING ---//
+    //Others
     private float _fallTimeoutDelta;
-
-    //--- REFERENCES ---//
     private CharacterController _characterController;
     private void Awake()
     {
@@ -56,7 +54,7 @@ public class PlayerController : MonoBehaviour
         Look();
     }
 
-    //--- BASE ---//
+    //Base
     private void Movement()
     {
 
@@ -88,7 +86,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //--- CALCULATIONS ---//
+    //Calculations of movement
     private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
     {
         if (lfAngle < -360f) lfAngle += 360f;
@@ -101,10 +99,10 @@ public class PlayerController : MonoBehaviour
         _grounded = _characterController.isGrounded;
         if (_grounded)
         {
-            // reset the fall timeout timer
+            //Reset the fall timeout timer
             _fallTimeoutDelta = FallTimeout;
 
-            // stop our velocity dropping infinitely when grounded
+            //Stop our velocity dropping infinitely when grounded
             if (_verticalVelocity < 0.0f)
             {
                 _verticalVelocity = -2f;
@@ -113,14 +111,14 @@ public class PlayerController : MonoBehaviour
         else
         {
 
-            // fall timeout
+            //Fall timeout
             if (_fallTimeoutDelta >= 0.0f)
             {
                 _fallTimeoutDelta -= Time.deltaTime;
             }
         }
 
-        // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
+        // Apply gravity over time
         if (_verticalVelocity < _terminalVelocity)
         {
             _verticalVelocity += gravity * Time.deltaTime;

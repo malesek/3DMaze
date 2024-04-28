@@ -34,7 +34,7 @@ public class BestScoreText : MonoBehaviour
             timeRemaining = 1;
         }
 
-        // Linear combination of points and time
+        // Calculate the coefficient
         double scoreCoefficient = 1000 * (timeRemaining * points + points * (1.0 / timeRemaining));
 
         return scoreCoefficient;

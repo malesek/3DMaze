@@ -5,8 +5,8 @@ using UnityEngine;
 public class MazeGenerator : MonoBehaviour
 {
     // Define variables to control the size and starting position of the maze
-    [Range(5, 500)]
-    public int mazeWidth = 5, mazeHeight = 5;
+    public static int mazeWidth = 5;
+    public static int mazeHeight = 5;
     public int startX, startY;
 
     // Define variable to store maze data
@@ -40,7 +40,6 @@ public class MazeGenerator : MonoBehaviour
 
         // Generate maze starting from startX, startY
         GenerateMazeRecursive(startX, startY);
-
         return maze;
     }
 

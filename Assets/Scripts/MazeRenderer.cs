@@ -19,9 +19,9 @@ public class MazeRenderer : MonoBehaviour
         MazeCell[,] maze = m_Generator.GetMaze();
 
         // Loop through each cell in the maze
-        for (int x = 0; x < m_Generator.mazeWidth; x++)
+        for (int x = 0; x < MazeGenerator.mazeWidth; x++)
         {
-            for (int y = 0; y < m_Generator.mazeHeight; y++)
+            for (int y = 0; y < MazeGenerator.mazeHeight; y++)
             {
                 // Instantiate a maze cell prefab at the appropriate position
                 GameObject newCell = Instantiate(MazeCellPrefab, new Vector3(x * CellSize, 0f, y * CellSize), Quaternion.identity, transform);
@@ -36,7 +36,7 @@ public class MazeRenderer : MonoBehaviour
                 bool bottom = false;
 
                 // Check if the cell is at the maze boundary and adjust wall configuration accordingly
-                if (x == m_Generator.mazeWidth - 1) right = true;
+                if (x == MazeGenerator.mazeWidth - 1) right = true;
                 if (y == 0) bottom = true;
 
                 // Initialize the maze cell with wall configuration
